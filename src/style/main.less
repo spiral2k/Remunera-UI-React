@@ -1,0 +1,218 @@
+
+// ----------- Background Colors ------------- //
+@backgroundColor: #fff;
+@backgroundHeader: #eeeff0;
+@backgroundHeaderUser: #e6e7e8;
+@beckgroundMenu: #333;
+
+// -----------  Colors ------------- //
+@menuLinkColor: #b3b6b8;
+@remuneraBlue: #3f95d1;
+@whiteColor: #fff;
+
+// -----------  Misc ------------- //
+@font: 'Arial';
+@fontSize: 1em;
+@fontSizeSmall: 0.8em;
+
+
+// -----------  Images ------------- //
+@base-url: "http://localhost:8080/";
+@imagesPath: '/images/';
+
+@reportsIcon: 'reports.png';
+@reportsOnIcon: 'reports-on.png';
+
+@settingsIcon: 'settings.png';
+@settingsOnIcon: 'settings-on.png';
+
+
+body{
+	background-color: @backgroundColor;
+	font-family: @font;
+	padding:0;
+	margin:0;
+	font-size:@fontSize;
+}
+
+
+.header{
+	float:right;
+	background:@backgroundHeader;
+	width: calc(~'100% - 150px');
+	height:70px;
+
+	& .page-title{
+		float:left;
+		margin:20px 0 0 20px;
+		font-size: @fontSize + 0.4;
+	    border: 0;
+	    color: #3896d2;
+	    padding: 0;
+	    text-transform: capitalize;
+	}
+
+
+	& .user-section{
+		background: @backgroundHeaderUser;	
+		width:180px;
+		float:right;
+		height:70px;
+
+		& .user-image{
+			.center-image;
+			margin-top:10px;
+		}
+
+
+		& .dots{
+			.center-image;
+			margin-top:4px;
+			cursor: pointer;
+		}
+
+
+		& .user-section-menu{
+			width:95px;
+			background-color: @whiteColor;
+		    float: right;
+		    margin-right: 42px;
+		    box-shadow: -2px -2px 10px 0px rgba(0,0,0,0.20);
+    		margin-top: 8px;
+
+			&:after {
+				float:right;
+				margin-top:-20px;
+			    border: solid transparent;
+			    content: " ";
+			    height: 0;
+			    width: 0;
+			    position: absolute;
+			    pointer-events: none;
+			    border-color: rgba(255, 255, 255, 0);
+			    border-bottom-color: #ffffff;
+			    border-width: 10px;
+    			margin-left: -56px;
+			}
+
+		}
+
+
+	}
+
+}
+
+.center-image(){
+	display: block;
+	margin-right:auto;
+	margin-left:auto;
+}
+
+
+.menu-icon-width(){
+	min-width:35px;
+	min-height:25px;
+}
+
+
+.menu{
+	background-color: @beckgroundMenu;
+	width:150px;
+	float:left;
+	height: 100vh;
+
+	& img{
+		.center-image
+	}
+	
+	& .logo{
+		margin-top:15px;
+	}
+
+	& .portal-name{
+		color:#fff;
+		display: block;
+		width:100%;
+		margin-top:5px;
+		text-align: center;
+	}
+
+	& .side-menu{
+		display:block;
+		margin-top:30px;
+		font-size: @fontSizeSmall;
+
+
+	    // --------> Hover on menu item
+
+		& a{
+			text-decoration: none;
+		}
+
+		& .menu-item .item{
+
+
+				color: @menuLinkColor;
+				margin: 10px 0;
+				padding:10px 0;
+				display: block;
+				text-align: center;
+
+				& .item-icon{
+					display: inline-block;	
+				}
+
+				& .name{
+					color:@menuLinkColor;
+					margin: 5px 0 0 0;
+					display: block;		
+				}
+
+				// ----> Icons
+
+				& .reports-icon{
+					background: url("@{base-url}@{imagesPath}@{reportsIcon}") no-repeat;
+					.menu-icon-width
+				}
+
+
+				& .settings-icon{
+					background: url("@{base-url}@{imagesPath}@{settingsIcon}") no-repeat;
+					.menu-icon-width
+				}
+
+
+
+				// --------> Hover on menu item
+
+				&:hover{
+
+					background: @remuneraBlue;
+					cursor: pointer;
+					color:#fff;
+
+					& .name{
+						color:@whiteColor;
+					}
+
+					// ----> Icons
+
+					& .reports-icon{
+						background: url("@{base-url}@{imagesPath}@{reportsOnIcon}") no-repeat;
+						.menu-icon-width
+					}
+
+					& .settings-icon{
+						background: url("@{base-url}@{imagesPath}@{settingsOnIcon}") no-repeat;
+						.menu-icon-width
+					}
+
+				}
+		}
+	}
+}
+
+.test-inner-page-class{
+	float:left;
+	margin-left:20px;
+}
