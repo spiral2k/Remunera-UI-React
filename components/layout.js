@@ -10,55 +10,36 @@ class Layout extends Component {
 		super();
 
 		this.state = {
-	      dropdownIsActive: false,
 	      dropdownIsVisible: false
 		}
 
-
-		console.log("layout ctor: ", props)
-
-
 		this.userMenuClick = this.userMenuClick.bind(this);
-
     	this.hideDropdown = this.hideDropdown.bind(this);
     	this.toggleDropdown = this.toggleDropdown.bind(this);
        	this.handleBlur = this.handleBlur.bind(this);
 	}
 
 	hideDropdown(e) {
-			console.log("hideDropdown: ", e.target, this)
-			// Hide dropdown block if it's not active
 			if (this.state.dropdownIsActive) {
 			  this.setState({ dropdownIsVisible: false });
 		}
 	}
 
-
 	toggleDropdown(e) {
-		console.log("toggleDropdown: ", e.target, this)
-		// Toggle dropdown block visibility
 		this.setState({ dropdownIsVisible: !this.state.dropdownIsVisible });
 	}
 
-
-
 	 handleBlur() {
-
-		// Clean up everything on blur
 		this.setState({
-		dropdownIsVisible: false,
-		dropdownIsActive: false,
+		dropdownIsVisible: false
 		});
 	 }
 
-
 	componentDidMount() {
-	    // Hide dropdown block on click outside the block
 	    window.addEventListener('click', this.hideDropdown, false);
 	}
 
 	componentWillUnmount() {
-		// Remove click event listener on component unmount
 		window.removeEventListener('click', this.hideDropdown, false);
 	}
 
@@ -69,7 +50,6 @@ class Layout extends Component {
 	}
 
 	render(){
-
 		return (
 				<div>
 	                <div className="header">

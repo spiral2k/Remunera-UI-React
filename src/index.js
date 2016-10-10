@@ -23,16 +23,9 @@ export default class App extends Component {
 
 
     setPageTitle(nameOfPage){
-
-        console.log("trying to set name of page: " , nameOfPage)
-
         this.setState({
             nameOfThePage: nameOfPage
         })
-
-
-        console.log("name of the page: ", this.state.nameOfThePage)
-
     }
 
 
@@ -69,13 +62,3 @@ render(
         </Route>
     </Router>, document.getElementById('app')
 );
-
-
-
-//
-// render(<App ggg={4} />, document.getElementById('app'));
-//      <Route path="about" component={About}/>
-//      <Route path="users" component={Users}>
- //       <Route path="/user/:userId" component={User}/>
-//      </Route>
-// render(<Simple />, document.getElementById('app'));
