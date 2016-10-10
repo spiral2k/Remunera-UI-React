@@ -6,6 +6,10 @@ export default class Settings extends Component {
 		super();
 	}
 
+	componentWillMount(){
+		this.props.setPageTitle("Settings");
+	}
+
 	render(){
 		return(
 			<p className="test-inner-page-class">

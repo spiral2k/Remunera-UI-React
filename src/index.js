@@ -11,13 +11,48 @@ export default class App extends Component {
 
     constructor(){
         super();
+
+        this.state = {
+            nameOfThePage: null
+        }
+
+        this.getPageTitle = this.getPageTitle.bind(this);
+        this.setPageTitle = this.setPageTitle.bind(this);
+
+    }
+
+
+    setPageTitle(nameOfPage){
+
+        console.log("trying to set name of page: " , nameOfPage)
+
+        this.setState({
+            nameOfThePage: nameOfPage
+        })
+
+
+        console.log("name of the page: ", this.state.nameOfThePage)
+
+    }
+
+
+
+    getPageTitle(){
+        return this.state.nameOfThePage;
     }
 
     render(){
+
+        const viewWithProps = React.Children.map(this.props.children,
+         (child) => React.cloneElement(child, {
+           setPageTitle: this.setPageTitle
+         })
+        );
+    
         return (
             <div>
-                <Layout />
-                {this.props.children}
+                <Layout pageTitle={this.state.nameOfThePage} />
+                {viewWithProps}
             </div>
         )
     };

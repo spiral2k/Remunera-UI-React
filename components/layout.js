@@ -2,18 +2,20 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 
 import MenuItem from '../components/menu-item';
-
 import UserMenu from '../components/user-section';
 
 class Layout extends Component {
 
-	constructor(){
+	constructor(props){
 		super();
 
 		this.state = {
 	      dropdownIsActive: false,
-	      dropdownIsVisible: false,
+	      dropdownIsVisible: false
 		}
+
+
+		console.log("layout ctor: ", props)
 
 
 		this.userMenuClick = this.userMenuClick.bind(this);
@@ -41,7 +43,7 @@ class Layout extends Component {
 
 
 	 handleBlur() {
-		console.log("handleBlur: ", this)
+
 		// Clean up everything on blur
 		this.setState({
 		dropdownIsVisible: false,
@@ -60,11 +62,7 @@ class Layout extends Component {
 		window.removeEventListener('click', this.hideDropdown, false);
 	}
 
-
-
-
 	userMenuClick(){
-		console.log("this: ", this);
 		this.setState({
 			userMenuVisible:true
 		})
@@ -75,7 +73,7 @@ class Layout extends Component {
 		return (
 				<div>
 	                <div className="header">
-	                    <span className="page-title">Remunera</span>
+	                    <span className="page-title">{this.props.pageTitle}</span>
 	                    <div className="user-section">
 
 	                    	<img src="images/user.png" className="user-image" />
@@ -115,6 +113,7 @@ class Layout extends Component {
 	                </div>
 
 				</div>
+
 		)
 
 	}

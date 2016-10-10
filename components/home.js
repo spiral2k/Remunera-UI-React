@@ -2,8 +2,16 @@ import React, { Component } from 'react';
 
 export default class Home extends Component {
 
-	constructor(){
+	constructor(props){
 		super();
+
+		console.log("Home ctor: ", props);
+
+	}
+
+
+	componentWillMount(){
+		this.props.setPageTitle("Home")
 	}
 
 	render(){
@@ -15,3 +23,4 @@ export default class Home extends Component {
 	}
 
 }
+

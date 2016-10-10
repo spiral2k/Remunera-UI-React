@@ -6,6 +6,11 @@ export default class Reports extends Component {
 		super();
 	}
 
+	componentWillMount(){
+		this.props.setPageTitle("Reports")
+	}
+
+
 	render(){
 		return(
 			<p className="test-inner-page-class">
